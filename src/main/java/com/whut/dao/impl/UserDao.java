@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.navinfo.core.orm.hibernate.HibernateDao;
 import com.whut.dao.BaseDao;
 import com.whut.entity.UserEntity;
 

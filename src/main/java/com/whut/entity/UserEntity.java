@@ -35,6 +35,8 @@ public class UserEntity extends BaseForm {
 	@Column(name = "PASSWORD", nullable = false, length = 50)
 	private String password;
 
+	
+
 	public int getUserId() {
 		return userId;
 	}

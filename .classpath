@@ -8,6 +8,5 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="G:/WorkSpace/ECheckServer/ECheckServer/extralibs/navi_appplat_basicarchitecture-1.0-20130823.035534-109.jar"/>
 	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>

@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.whut.core.utils.ResponseUtils;
 import com.whut.dao.impl.UserDao;
 import com.whut.entity.UserEntity;
+import com.whut.service.UserService;
 
 
 
@@ -32,22 +33,16 @@ import com.whut.entity.UserEntity;
 public class LoginController {
 
 	@Autowired
-	private UserDao userDao;
+	private UserService userSerivice;
 	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public @ResponseBody
 	Map<String,Object> list(HttpServletRequest request) {
-		UserEntity entity = userDao.get(1);
+		UserEntity entity = userSerivice.findById(1);
+		UserEntity entity1 = userSerivice.findUniqueByProperty("username", "edward");
 		List<Integer> testList = new ArrayList<Integer>();
 		testList.add(1);
 		testList.add(2);
 		return  ResponseUtils.sendList(testList);
 	}
-
-	public void setUserDao(UserDao userDao) {
-		this.userDao = userDao;
-	}
-
-	
-	
 }
