@@ -88,16 +88,7 @@ public class BaseDao<T, PK extends Serializable> implements DaoInterface<T, PK >
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
-	public T merge(T detachedInstance) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public void attachClean(T instance) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	@Override
 	public <X> List<X> queryByHQL(Class<X> entityClass, String hql) {
 		// TODO Auto-generated method stub

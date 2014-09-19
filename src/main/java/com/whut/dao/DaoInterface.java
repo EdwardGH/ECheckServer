@@ -98,23 +98,6 @@ public interface DaoInterface<T, PK extends Serializable> {
 
 	
 	/**
-	 * 将分离态的实例对象重新与数据库绑定
-	 * 
-	 * @param detachedInstance
-	 * @return
-	 */
-	public T merge(T detachedInstance);
-
-	/**
-	 * 
-	 * @param instance
-	 */
-	public void attachClean(T instance);
-
-	
-
-	
-	/**
 	 * 用hql语句查询，结果集里面只有一个实体类的对象集
 	 */
 	public <X> List<X> queryByHQL(Class<X> entityClass, final String hql);
