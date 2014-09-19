@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.whut.core.utils.ResponseUtils;
+import com.whut.dao.impl.UserDao;
+import com.whut.entity.UserEntity;
 
 
 
@@ -29,16 +31,21 @@ import com.whut.core.utils.ResponseUtils;
 @RequestMapping(value = "/login")
 public class LoginController {
 
-	
+	@Autowired
+	private UserDao userDao;
 	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public @ResponseBody
 	Map<String,Object> list(HttpServletRequest request) {
-		
+		UserEntity entity = userDao.get(1);
 		List<Integer> testList = new ArrayList<Integer>();
 		testList.add(1);
 		testList.add(2);
 		return  ResponseUtils.sendList(testList);
+	}
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
 	}
 
 	

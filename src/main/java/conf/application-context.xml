@@ -32,6 +32,7 @@
     <!-- 使Spring关注Annotation -->
     <context:annotation-config/>  
     
+    
 	<!-- <aop:aspectj-autoproxy/>-->
     <!-- 让Spring通过自动扫描来查询和管理Bean -->
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
@@ -69,11 +70,7 @@
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
-				<!-- 先不用缓存 -->
-				<!-- <prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProviderr</prop>
-				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>				
-				<prop key="hibernate.cache.provider_configuration_file_resource_path">ehcache/ehcache-hibernate-local.xml</prop> -->
-				<prop key="current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop> 
+				<prop key="current_session_context_class">thread</prop> 
 				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop> 
        <!-- <prop key="hibernate.cache.use_second_level_cache">true</prop> -->
         <!-- <prop key="hibernate.cache.use_query_cache">true</prop> 
@@ -89,36 +86,30 @@
 	 <!-- 配置事务管理器 -->
 	<!-- 事务管理器配置,单数据源事务 混用jdbcTemplage和hibernate事务
 	 要使用org.springframework.orm.hibernate3.HibernateTransactionManager -->
-	<!-- <bean id="transactionManager"
+	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
-	</bean> -->
+	</bean>
 
 	<!-- 使用annotation定义事务 这里是开启事务，用的是注解
 	用配置文件的好处，是事务声明比较集中，不需要在每个Service层接口上单独声明。缺点是Service中的方法，命名规范需要事先约定好，否则事务就不能生效
 
 用注解的好处，是Service中的方法命名不需要特别规定，缺点是没有做到集中声明，如果在某个Service层的接口忘记声明事务，那么事务就无法生效
  -->
- <!--
-		This marker creates the full auto-proxy infrastructure
-		that is necessary for applying Spring's Transactional annotation
-		(as contained in the PetStoreAnnotationImpl class). By default,
-		it will refer to the transaction manager bean named "transactionManager".
-	-->
  
-	<!-- <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" /> -->
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
   
     <!-- 配置事务的传播特性  
                         声明式容器管理事务
                   建议使用声明式容器管理事务，而不建议使用注解容器管理事务（虽然简单）
                   ，但太分布式了，采用声明式容器管理事务一般只对service层进行处理。-->   
-   <!-- <tx:advice id="txAdvice" transaction-manager="transactionManager">   
+   <tx:advice id="txAdvice" transaction-manager="transactionManager">   
         <tx:attributes>   
            <tx:method name="create*" propagation="REQUIRED" />  
             <tx:method name="save*" propagation="REQUIRED" />  
             <tx:method name="update*" propagation="REQUIRED" />   
             <tx:method name="delete*" propagation="REQUIRED" />  
-            所有以list开始的方法是只读
+                    <!-- 所有以list开始的方法是只读 -->
         <tx:method name="save*" propagation="REQUIRED" />  
         <tx:method name="add*" propagation="REQUIRED" />  
         <tx:method name="create*" propagation="REQUIRED" />  
@@ -126,19 +117,18 @@
         <tx:method name="update*" propagation="REQUIRED" />  
         <tx:method name="del*" propagation="REQUIRED" />  
         <tx:method name="remove*" propagation="REQUIRED" />  
-        hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到  
+        <!-- hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到   -->
         <tx:method name="get*" propagation="REQUIRED" read-only="true" />   
         <tx:method name="find*" propagation="REQUIRED" read-only="true" />  
         <tx:method name="list*" propagation="REQUIRED" read-only="true" />  
         <tx:method name="*" read-only="true" />   
         </tx:attributes>   
-    </tx:advice>    -->
+    </tx:advice>    
     <!-- 只对业务逻辑层实施事务  --> 
-     <!-- <aop:config> 
-      <aop:advisor pointcut="execution(* com.ids.example.logic.*Logic.*(..))" advice-ref="txAdvice"/>
-		  <aop:advisor pointcut="execution(* com.navinfo.core.orm.hibernate.*Dao.*(..))" advice-ref="txAdvice"/>
-          <aop:advisor pointcut="execution(* com.navinfo.core.service.*Logic.*(..))" advice-ref="txAdvice"/> 
-   </aop:config>  -->
+    <aop:config proxy-target-class="true">  
+        <aop:advisor advice-ref="txAdvice"  
+            pointcut="execution(* com..dao..*.*(..))" />  
+    </aop:config>   
     
  
     <!-- 那些类的哪些方法参与事务
@@ -156,10 +146,10 @@
  
   
 		<!-- SpringContextHandler定义 -->
-	<!-- <bean class="com.navinfo.core.SpringContextHolder" lazy-init="false"/> -->
+	<!-- <bean class="com.navinfo.core.SpringContextHolder" lazy-init="false"/>  -->
 
 	<!-- JSR303 Validator定义 -->
- 	<!-- <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" /> -->
+ 	<!-- <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />  -->
 	 
 	
 	

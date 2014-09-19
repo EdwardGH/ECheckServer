@@ -9,8 +9,8 @@
 
 	<!-- 视图 end -->
 	
-	<!-- <mapping
-		class="com.navinfo.bd.basic.entity.TBdSaleregionShopEntity" /> -->
+	<mapping
+		class="com.whut.entity.UserEntity" /> 
 
 </session-factory>
 </hibernate-configuration>

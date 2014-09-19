@@ -1,7 +1,10 @@
 #hello
 .classpath
 .mymetadata
+.myhibernatedata
 .project
 .settings/*
+.idea/*
 src/main/webapp/WEB-INF/classes/*
 target/*
+*.iml
