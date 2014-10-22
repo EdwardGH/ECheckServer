@@ -18,4 +18,16 @@ public class UserService {
 	public UserEntity findUniqueByProperty(String propertyName,Object value) {
 		return userDao.findUniqueBy(propertyName, value);
 	}
+	
+	public int saveUser(UserEntity entity){
+		try {
+			userDao.save(entity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	
 }

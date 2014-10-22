@@ -24,10 +24,10 @@ public class UserEntity extends BaseForm {
 	// Fields
 
 	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@GenericGenerator(name = "system-uuid", strategy = "uuid.hex") 
+	@GenericGenerator(name = "idGenerator", strategy = "increment")
+	@GeneratedValue(generator = "idGenerator")
 	@Column(name = "USER_ID", unique = true, nullable = false, length = 50)
-	private int userId;
+	private Integer userId;
 
 	@Column(name = "USERNAME", nullable = false, unique = true,length = 50)
 	private String username;
@@ -35,13 +35,11 @@ public class UserEntity extends BaseForm {
 	@Column(name = "PASSWORD", nullable = false, length = 50)
 	private String password;
 
-	
-
-	public int getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 

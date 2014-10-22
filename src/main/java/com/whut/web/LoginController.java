@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.whut.core.BaseForm;
 import com.whut.core.utils.ResponseUtils;
 import com.whut.dao.impl.UserDao;
 import com.whut.entity.UserEntity;
@@ -33,16 +34,26 @@ import com.whut.service.UserService;
 public class LoginController {
 
 	@Autowired
-	private UserService userSerivice;
+	private UserService userService;
 	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public @ResponseBody
 	Map<String,Object> list(HttpServletRequest request,String username) {
-		UserEntity entity = userSerivice.findById(1);
-		UserEntity entity1 = userSerivice.findUniqueByProperty("username", "edward");
+		BaseForm form = new BaseForm();
+		UserEntity entity = userService.findById(1);
+		//UserEntity entity1 = userService.findUniqueByProperty("username", "edward");
+		UserEntity entity2 = new UserEntity();
+		entity2.setUsername("hello");
+		entity2.setPassword("world");
+		try {
+			userService.saveUser(entity2);
+			form.setResult("success");
+		} catch (Exception e) {
+			form.setResult("failure");
+		}
 		List<Integer> testList = new ArrayList<Integer>();
 		testList.add(1);
 		testList.add(2);
-		return  ResponseUtils.sendList(testList);
+		return  ResponseUtils.sendBaseForm(form);
 	}
 }

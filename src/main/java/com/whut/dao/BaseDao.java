@@ -47,7 +47,7 @@ public class BaseDao<T, PK extends Serializable> {
 		entityClass = ReflectUtils.getClassGenricType(getClass());
 	}
 
-	private void save1(T entity) {
+	public void save1(T entity) {
 		Assert.notNull(entity, "entity不能为空");
 		Session session = getSession();
 		Transaction tran = null;
@@ -68,9 +68,10 @@ public class BaseDao<T, PK extends Serializable> {
 		// this.logger.debug("save entity: {}", entity);
 	}
 
-	public void save(T entity) {
+	public void save(T entity) throws Exception{
 		Assert.notNull(entity, "entity不能为空");
-		getSession().saveOrUpdate(entity);
+		Session session = getSession();
+		session.saveOrUpdate(entity);
 		// this.logger.debug("save entity: {}", entity);
 	}
 
