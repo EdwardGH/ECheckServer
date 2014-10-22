@@ -40,9 +40,9 @@ public class LoginController {
 	public @ResponseBody
 	Map<String,Object> list(HttpServletRequest request,String username) {
 		BaseForm form = new BaseForm();
-		UserEntity entity = userService.findById(1);
+		List<UserEntity> entity = userService.getLatestN(1);
 		//UserEntity entity1 = userService.findUniqueByProperty("username", "edward");
-		UserEntity entity2 = new UserEntity();
+		/*UserEntity entity2 = new UserEntity();
 		entity2.setUsername("hello");
 		entity2.setPassword("world");
 		try {
@@ -50,7 +50,7 @@ public class LoginController {
 			form.setResult("success");
 		} catch (Exception e) {
 			form.setResult("failure");
-		}
+		}*/
 		List<Integer> testList = new ArrayList<Integer>();
 		testList.add(1);
 		testList.add(2);

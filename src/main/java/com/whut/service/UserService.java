@@ -1,5 +1,7 @@
 package com.whut.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +31,8 @@ public class UserService {
 		return 0;
 	}
 
+	public List<UserEntity> getLatestN(int num){
+		return userDao.getLatestN(num);
+	}
 	
 }
