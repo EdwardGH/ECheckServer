@@ -37,7 +37,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public @ResponseBody
-	Map<String,Object> list(HttpServletRequest request) {
+	Map<String,Object> list(HttpServletRequest request,String username) {
 		UserEntity entity = userSerivice.findById(1);
 		UserEntity entity1 = userSerivice.findUniqueByProperty("username", "edward");
 		List<Integer> testList = new ArrayList<Integer>();

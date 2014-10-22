@@ -94,13 +94,13 @@
   </welcome-file-list>
   
    <!-- tag libs -->
-  <jsp-config>
+  <!-- <jsp-config>
   
     <taglib>
       <taglib-uri>/core</taglib-uri>
       <taglib-location>/WEB-INF/taglibs/c.tld</taglib-location>
     </taglib>
-  </jsp-config>
+  </jsp-config> -->
     
     
 	<error-page>
