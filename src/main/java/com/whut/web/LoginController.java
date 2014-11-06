@@ -1,9 +1,6 @@
 package com.whut.web;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -70,5 +67,15 @@ public class LoginController {
 		view.setViewName("caselist");
 		return view;
 	}
-	
+
+    @RequestMapping(value = "/loadOption", method = RequestMethod.GET)
+    public @ResponseBody
+    Map<String,Object> loadOption(HttpServletRequest request,String username) {
+        Map<Object, Object> option = new TreeMap<Object, Object>();
+        option.put(1,"hello");
+        option.put(2,"world");
+        Map map = ResponseUtils.getInstanceMap();
+        map.put("option",option);
+        return  map;
+    }
 }

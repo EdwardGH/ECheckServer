@@ -17,8 +17,8 @@ define(function(require, exports, module) {
         $('#finishDate').datepicker({format: 'yyyy-mm-dd'});
 
         //init option content
-        /*option.ajax("caseType", "/case/ajax/loadCaseTypeOption", "", "option", 0);
-        option.ajax("status", "/case/ajax/loadStatusOption", "", "option", 0);*/
+        option.ajax("caseType", "/login/loadOption", "", "option", 0);
+        option.ajax("status", "/login/loadOption", "", "option", 0);
 
         //提交按钮的点击操作
         $('#submit').bind('click', function () {

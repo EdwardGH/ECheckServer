@@ -42,7 +42,7 @@ public class ResponseUtils
     return map;
   }
 
-  private static Map<String, Object> getInstanceMap()
+  public static Map<String, Object> getInstanceMap()
   {
     return new HashMap();
   }

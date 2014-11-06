@@ -2,7 +2,7 @@
 <#setting number_format="#.##"/>
 <#assign basePath=request.contextPath>
 <head>
-    <title>大众点评网</title>
+    <title>电力巡检</title>
     <script charset="utf-8" src="${basePath}/js/seajs/dist/sea.js"></script>
     <script charset="utf-8" src="${basePath}/js/sea-config.js"></script>
     <!-- Bootstrap 核心 CSS 文件 -->

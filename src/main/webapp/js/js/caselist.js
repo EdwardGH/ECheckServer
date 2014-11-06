@@ -23,8 +23,8 @@ define(function(require, exports, module) {
         $('#finishDate').datepicker({format: 'yyyy-mm-dd'});
 
         //init option content
-        /*option.ajax("caseType", "/case/ajax/loadCaseTypeOption", "", "option", 0);
-        option.ajax("status", "/case/ajax/loadStatusOption", "", "option", 0);*/
+        option.ajax("caseType", "loadOption.do", "", "option", 0);
+        option.ajax("status", "loadOption.do", "", "option", 0);
 
         //search payplan list
         $('#search').bind('click', function () {

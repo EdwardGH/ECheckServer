@@ -5,12 +5,12 @@ define(function(require, exports, module) {
     var ajax=require("./ajax");
     module.exports= {
         ajax: function (select, url, params, namespace, value, method) {
-            if(method==null || method=='post') {
-                ajax.post(url, params, function(data){
+            if(method==null || method=='get') {
+            	ajax.get(url,function(data){
                     deal(data,select,namespace,value);
                 });
             } else {
-                ajax.get(url,function(data){
+                ajax.post(url, params, function(data){
                     deal(data,select,namespace,value);
                 });
             }

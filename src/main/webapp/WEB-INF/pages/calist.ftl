@@ -22,8 +22,8 @@
                 </tr>
                 </thead>
 
-                <tbody id="financecase_list" namespace="financeCaseModel" page_size="20"
-                       table_url="/case/ajax/financecaselist">
+                <tbody id="financecase_list" namespace="pageModel" page_size="20"
+                       table_url="../list/loadList.do">
                 </tbody>
 
             </table>
@@ -46,8 +46,8 @@
     <tr >
     {{/if}}
 
-        <td id="{{= record.fcId}}id" class="fs tb-item auto-break">{{= record.fcId}}</td>
-        <td id="{{= record.fcId}}desc" class="fs tb-item auto-break">{{= record.description}}</td>
+        <td id="{{= record.name}}id" class="fs tb-item auto-break">{{= record.name}}</td>
+        <td id="{{= record.fcId}}desc" class="fs tb-item auto-break">{{= record.password}}</td>
         <td id="{{= record.fcId}}reso" class="fs tb-item auto-break">{{= record.resolution}}</td>
         <td id="{{= record.fcId}}type" class="fs tb-item auto-break">{{= record.caseType}}</td>
         <td id="{{= record.fcId}}impa" class="fs tb-item auto-break">{{= record.impact}}</td>
