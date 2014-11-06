@@ -83,6 +83,11 @@
 		<servlet-name>springServlet</servlet-name>
  	     <url-pattern>*.do</url-pattern>  
 	</servlet-mapping>  
+	
+	<servlet-mapping>
+		<servlet-name>springServlet</servlet-name>
+ 	     <url-pattern>*.htm</url-pattern>  
+	</servlet-mapping>  
 
 	<session-config>
 		<session-timeout>120</session-timeout>

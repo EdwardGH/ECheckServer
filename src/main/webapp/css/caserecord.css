@@ -1,0 +1,139 @@
+.main_container{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.nav_container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.navbar-text ,.navbar_btn_group{
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.navbar_btn_group{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.nav li {
+    font-size: 13px;
+}
+.nav_btn {
+    display: inline-block;
+    line-height: 20px;
+    font-size: 14px;
+    padding: 4px 12px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    color: #333;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+.nav_btn:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    text-decoration: none;
+}
+.nav_left_radius {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.nav_right_radius {
+    margin-left: -6px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.panel_container{
+    padding: 0px 15px;
+}
+.noradius{
+    border-radius: 0px;
+}
+.tb-header{
+    font-size: 12px;
+}
+.table td{
+    /*text-align: center;*/
+    font-size: 12px;
+}
+
+.norecord{
+    text-align: center;
+}
+
+.pagination-right {
+    text-align: right;
+}
+#pagination_bar{display:none}
+.pagination *{
+    display: inline-block;
+    vertical-align: top;
+    line-height: 20px;
+}
+.pagenomargin {
+    margin: 0px 0px 0px 0px;
+}
+.pagination .text{
+    margin-right: 10px;
+    padding: 5px;
+}
+.pagination ul>.active>a{
+    background-color: #f5f5f5;
+    color: #999;
+    border-color:#ddd;
+}
+.pagination ul>li>a{
+    border: 1px solid ;
+    border-color:#ddd;
+}
+
+#loading.alert {
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    color: rgb(192, 152, 83);
+    background-color: rgb(252, 248, 227);
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    border-radius: 4px;
+}
+.modal-backdrop{
+    background-color: rgba(0, 0, 0, 0.298039);
+    bottom: 0px;
+    color: rgb(51, 51, 51);
+    display: block;
+    font-family: '微软雅黑, 黑体, 宋体';
+    font-size: 12px;
+    height: 436px;
+    left: 0px;
+    line-height: 20px;
+    opacity: 0.800000011920929;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    z-index: 5;
+}
+.icon-calendar {
+    background-position: -192px -120px;
+    background-image: url('img/glyphicons-halflings.png');
+}
+.icon-user {
+    background-position: -168px -0px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+    line-height: 14px;
+    background-image: url('img/glyphicons-halflings.png');
+}
+.datepicker{z-index:1151;}
+
+html body {
+    font-family: '微软雅黑','黑体','宋体';
+    font-size: 12px;
+
+}

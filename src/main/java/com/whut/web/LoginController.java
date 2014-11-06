@@ -56,4 +56,19 @@ public class LoginController {
 		testList.add(2);
 		return  ResponseUtils.sendBaseForm(form);
 	}
+	
+	@RequestMapping(value = "/testFtl", method = RequestMethod.GET)
+	public ModelAndView login(HttpServletRequest req, HttpServletResponse res) {
+		ModelAndView view = new ModelAndView();
+		view.setViewName("case");
+		return view;
+	}
+	
+	@RequestMapping(value = "/listFtl", method = RequestMethod.GET)
+	public ModelAndView list(HttpServletRequest req, HttpServletResponse res) {
+		ModelAndView view = new ModelAndView();
+		view.setViewName("caselist");
+		return view;
+	}
+	
 }
