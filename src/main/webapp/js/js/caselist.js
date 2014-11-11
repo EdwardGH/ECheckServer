@@ -28,6 +28,7 @@ define(function(require, exports, module) {
 
         //search payplan list
         $('#search').bind('click', function () {
+        	//list_model,financecase_list这些参数去ftl文件里面找
             list.init("list_model", "financecase_list", "pagination_bar", "", "", "NoRowsTemplate",
                       "case_search", null, 1,  function(data){
 
